@@ -31,7 +31,11 @@ def create_service() -> FastAPI:
         {
             "name": "health",
             "description": "Health check for api",
-        }
+        },
+        {
+            "name": "companies",
+            "description": "Companies API",
+        },
     ]
 
     app = FastAPI(

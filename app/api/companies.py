@@ -7,7 +7,7 @@ from fastapi import APIRouter, UploadFile
 from service.import_companies import import_company
 
 
-router = APIRouter()
+router = APIRouter(tags=["companies"])
 
 
 @router.post("/import_company_data")
