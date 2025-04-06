@@ -1,0 +1,40 @@
+volumes:
+  base-data:
+  db-data:
+
+services:
+  db:
+    container_name: ts-db
+    image: postgres:15-alpine
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  backend:
+    container_name: ts-backend
+    restart: always
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./ops/docker/Dockerfile
+      args:
+        env: ${ENV}
+    ports:
+      - "8000:8000"
+    command: |
+      bash -c "
+      while !</dev/tcp/db/5432; do sleep 1; done;
+      uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level info"
+    depends_on:
+      - db
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=20
+    volumes:
+      - base-data:/data
+      - ./app/:/app
