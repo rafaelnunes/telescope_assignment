@@ -16,8 +16,8 @@ class CompanyData(UUIDModel, table=True):
 
     name: str = Field(nullable=False)
     url: str = Field(nullable=False)
-    description: str = Field(nullable=False)
-    industry: str = Field(nullable=False)
+    description: str = Field(nullable=True)
+    industry: str = Field(nullable=True)
     founded_year: int = Field(nullable=False)
     total_employees: int = Field(nullable=False)
     headquarters_city: str = Field(nullable=False)
