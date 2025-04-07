@@ -2,6 +2,7 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+from sqlalchemy_utils import database_exists, create_database
 
 from alembic import context
 
@@ -78,6 +79,12 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
+    # Create database if it doesn't exist
+    url = config.get_main_option("sqlalchemy.url")
+    if not database_exists(url):
+        create_database(url)
+        print(f"Created database: {url}")
+    
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
