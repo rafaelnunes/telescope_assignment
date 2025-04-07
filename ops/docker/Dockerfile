@@ -39,7 +39,4 @@ COPY . /app/
 
 ENV PYTHONPATH=/app
 
-# Verify psycopg2 installation
-RUN python -c "import psycopg2; print(f'psycopg2 version: {psycopg2.__version__}')"
-
 EXPOSE 8000

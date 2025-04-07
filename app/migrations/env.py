@@ -1,20 +1,35 @@
 from logging.config import fileConfig
-import os
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from models.companies import CompanyData  # Import your models
-from sqlmodel import SQLModel
+
+import os
+import sys
+from dotenv import load_dotenv
+
+# Add the app directory to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Load environment variables
+load_dotenv()
+
+# Import all models here
+from models.companies import CompanyData, ProcessedCompany  # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
-# Set the database URL in the config
-db_url = f"postgresql+psycopg2://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}@{os.getenv('POSTGRES_HOST')}:{os.getenv('POSTGRES_PORT')}/{os.getenv('POSTGRES_DB')}"
-config.set_main_option("sqlalchemy.url", db_url)
+# Set the database URL in the alembic.ini file
+database_url = os.getenv("POSTGRES_URL")
+if database_url is None:
+    raise ValueError("POSTGRES_URL environment variable is not set")
+
+# Replace asyncpg with psycopg2 for Alembic
+database_url = database_url.replace("postgresql+asyncpg://", "postgresql://")
+config.set_main_option("sqlalchemy.url", str(database_url))
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -23,6 +38,7 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
+from sqlmodel import SQLModel
 target_metadata = SQLModel.metadata
 
 # other values from the config, defined by the needs of env.py,
