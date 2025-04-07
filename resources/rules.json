@@ -1,0 +1,54 @@
+{
+    "urls": [
+        "https://www.aioperations.ai",
+        "https://www.aiflow.ai",
+        "https://www.aiprocess.tech",
+        "https://www.aiprocess.io",
+        "https://www.aiprocess.ai",
+        "https://www.aivision.ai",
+        "https://www.agiledev.app",
+        "https://www.agilehealth.com",
+        "https://www.agileops.tech",
+        "https://www.agilestack.cloud",
+        "https://www.agrotech.com",
+        "https://www.aiops.cloud"
+    ],
+    "rules": [
+        {
+            "input": "total_employees",
+            "feature_name": "head_count_feature",
+            "operation": {
+                "greater_than": 80
+            },
+            "match": 0,
+            "default": 1
+        },
+        {
+            "input": "company_age",
+            "feature_name": "age_feature",
+            "operation": {
+                "less_than": 10
+            },
+            "match": 1,
+            "default": 0
+        },
+        {
+            "input": "is_usa_based",
+            "feature_name": "usa_based_feature",
+            "operation": {
+                "equal": true
+            },
+            "match": 1,
+            "default": 0
+        },
+        {
+            "input": "is_saas",
+            "feature_name": "is_saas_feature",
+            "operation": {
+                "equal": true
+            },
+            "match": 1,
+            "default": 0
+        }
+    ]
+}

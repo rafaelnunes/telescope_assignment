@@ -1,5 +1,6 @@
 import datetime
 import uuid
+from typing import List
 
 from sqlmodel import JSON, Column, Field, Relationship, SQLModel
 
@@ -12,7 +13,7 @@ class UUIDModel(SQLModel):
 
 
 class CompanyData(UUIDModel, table=True):
-    __tablename__ = "companies"
+    __tablename__: str = "companies"
 
     name: str = Field(nullable=False)
     url: str = Field(nullable=False)
@@ -23,15 +24,19 @@ class CompanyData(UUIDModel, table=True):
     headquarters_city: str = Field(nullable=False)
     employee_locations: dict = Field(sa_column=Column(JSON))
     employee_growth: dict = Field(sa_column=Column(JSON))
+    extras: dict = Field(sa_column=Column(JSON))
     imported_at: datetime.datetime = Field(nullable=False)
 
-    processed_data: list["ProcessedCompany"] = Relationship(back_populates="company")
+    # Relationships
+    processed_data: List["ProcessedCompany"] = Relationship(back_populates="company")
 
 
 class ProcessedCompany(UUIDModel, table=True):
-    __tablename__ = "processed_companies"
+    __tablename__: str = "processed_companies"
 
     company_id: int = Field(foreign_key="companies.id")
-    company: CompanyData = Relationship(back_populates="processed_data")
     data: dict = Field(sa_column=Column(JSON))
     processed_at: datetime.datetime = Field(nullable=False)
+
+    # Relationships
+    company: CompanyData = Relationship(back_populates="processed_data")
