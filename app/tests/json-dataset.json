@@ -1,0 +1,207 @@
+[
+    {
+        "company_name": "CloudLogic Labs",
+        "url": "https://www.cloudlogiclabs.com",
+        "founded_year": 2021,
+        "total_employees": 38,
+        "headquarters_city": "Boston (USA)",
+        "employee_locations": {
+            "USA": 32,
+            "Canada": 3,
+            "UK": 2,
+            "India": 1
+        },
+        "employee_growth": {
+            "2Y": 85.2,
+            "1Y": 38.6,
+            "6M": 19.8
+        },
+        "description": "Project management platform with integrated resource allocation, subscription-based pricing with tiered plans",
+        "industry": "Software"
+    },
+    {
+        "company_name": "DataSync Technologies",
+        "url": "https://www.datasynctech.io",
+        "founded_year": 2020,
+        "total_employees": 42,
+        "headquarters_city": "San Francisco (USA)",
+        "employee_locations": {
+            "USA": 36,
+            "Canada": 4,
+            "Germany": 1,
+            "Singapore": 1
+        },
+        "employee_growth": {
+            "2Y": 92.7,
+            "1Y": 41.3,
+            "6M": 22.5
+        },
+        "description": "Enterprise data integration platform enabling real-time data synchronization across multiple systems, monthly subscription with volume-based pricing",
+        "industry": "Data Integration"
+    },
+    {
+        "company_name": "SecureEdge Solutions",
+        "url": "https://www.secureedgesolutions.com",
+        "founded_year": 2022,
+        "total_employees": 27,
+        "headquarters_city": "Austin (USA)",
+        "employee_locations": {
+            "USA": 23,
+            "Canada": 2,
+            "UK": 1,
+            "Australia": 1
+        },
+        "employee_growth": {
+            "2Y": null,
+            "1Y": 65.8,
+            "6M": 24.6
+        },
+        "description": "Zero-trust security framework for distributed workforces with centralized policy management, per-user monthly billing",
+        "industry": "Cybersecurity"
+    },
+    {
+        "company_name": "NexusWave Systems",
+        "url": "https://www.nexuswave.tech",
+        "founded_year": 2019,
+        "total_employees": 52,
+        "headquarters_city": "Toronto (Canada)",
+        "employee_locations": {
+            "USA": 15,
+            "Canada": 31,
+            "UK": 3,
+            "India": 2,
+            "Brazil": 1
+        },
+        "employee_growth": {
+            "2Y": 61.5,
+            "1Y": 26.7,
+            "6M": 14.2
+        },
+        "description": "Application development environment with seamless deployment across platforms, annual licensing and implementation services",
+        "industry": "Software Development"
+    },
+    {
+        "company_name": "QuantumAI Corp",
+        "url": "https://www.quantumaicorp.ai",
+        "founded_year": 2021,
+        "total_employees": 34,
+        "headquarters_city": "Seattle (USA)",
+        "employee_locations": {
+            "USA": 29,
+            "Canada": 3,
+            "France": 1,
+            "Japan": 1
+        },
+        "employee_growth": {
+            "2Y": 78.3,
+            "1Y": 43.7,
+            "6M": 21.4
+        },
+        "description": "AI hardware accelerators with proprietary algorithm optimization software, one-time purchase with maintenance contracts",
+        "industry": "Artificial Intelligence"
+    },
+    {
+        "company_name": "RapidCore Software",
+        "url": "https://www.rapidcore.co",
+        "founded_year": 2020,
+        "total_employees": 45,
+        "headquarters_city": "New York (USA)",
+        "employee_locations": {
+            "USA": 38,
+            "Canada": 2,
+            "Germany": 3,
+            "India": 2
+        },
+        "employee_growth": {
+            "2Y": 78.9,
+            "1Y": 39.2,
+            "6M": 18.7
+        },
+        "description": "DevOps workflow automation with CI/CD capabilities, team-based subscription model with unlimited repositories",
+        "industry": "DevOps"
+    },
+    {
+        "company_name": "SmartLogistics Tech",
+        "url": "https://www.smartlogistics.com",
+        "founded_year": 2018,
+        "total_employees": 67,
+        "headquarters_city": "Chicago (USA)",
+        "employee_locations": {
+            "USA": 52,
+            "Canada": 5,
+            "UK": 4,
+            "Germany": 2,
+            "China": 2,
+            "Brazil": 2
+        },
+        "employee_growth": {
+            "2Y": 39.4,
+            "1Y": 22.1,
+            "6M": 10.3
+        },
+        "description": "IoT-enabled supply chain tracking and logistics optimization, hardware sensors sold with recurring software access fees",
+        "industry": "Logistics"
+    },
+    {
+        "company_name": "MacroAnalytics Group",
+        "url": "https://www.macroanalytics.io",
+        "founded_year": 2021,
+        "total_employees": 32,
+        "headquarters_city": "San Diego (USA)",
+        "employee_locations": {
+            "USA": 28,
+            "Canada": 2,
+            "UK": 1,
+            "Singapore": 1
+        },
+        "employee_growth": {
+            "2Y": 81.6,
+            "1Y": 42.4,
+            "6M": 20.9
+        },
+        "description": "Financial analysis and reporting tools for mid-market companies, subscription-based with role-based access control",
+        "industry": "Finance"
+    },
+    {
+        "company_name": "HyperBlock Systems",
+        "url": "https://www.hyperblocksystems.com",
+        "founded_year": 2020,
+        "total_employees": 58,
+        "headquarters_city": "Vancouver (Canada)",
+        "employee_locations": {
+            "USA": 18,
+            "Canada": 32,
+            "UK": 3,
+            "Germany": 2,
+            "India": 3
+        },
+        "employee_growth": {
+            "2Y": 74.2,
+            "1Y": 37.5,
+            "6M": 17.8
+        },
+        "description": "Blockchain-based document verification with custom implementation services, recurring transaction fees",
+        "industry": "Blockchain"
+    },
+    {
+        "company_name": "UltraConnect Networks",
+        "url": "https://www.ultraconnect.tech",
+        "founded_year": 2019,
+        "total_employees": 49,
+        "headquarters_city": "Denver (USA)",
+        "employee_locations": {
+            "USA": 42,
+            "Canada": 3,
+            "France": 2,
+            "Japan": 1,
+            "Australia": 1
+        },
+        "employee_growth": {
+            "2Y": 53.8,
+            "1Y": 28.5,
+            "6M": 15.2
+        },
+        "description": "Unified communications platform for enterprises, per-seat monthly pricing with unlimited usage",
+        "industry": "Telecommunications"
+    }
+]

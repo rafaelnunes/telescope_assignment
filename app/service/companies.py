@@ -226,10 +226,20 @@ async def process_company(
         feature_value = get_feature_value(company, rule)
         company_processed_data.update(feature_value)
 
-    processed_company = ProcessedCompany(
-        company_id=company.id, data=company_processed_data, processed_at=datetime.datetime.now()
+    existing_processed = await db_session.exec(
+        select(ProcessedCompany).where(ProcessedCompany.company_id == company.id)
     )
-    db_session.add(processed_company)
+    existing = existing_processed.first()
+
+    if existing:
+        existing.data = company_processed_data
+        existing.processed_at = datetime.datetime.now()
+        processed_company = existing
+    else:
+        processed_company = ProcessedCompany(
+            company_id=company.id, data=company_processed_data, processed_at=datetime.datetime.now()
+        )
+        db_session.add(processed_company)
 
     return processed_company
 

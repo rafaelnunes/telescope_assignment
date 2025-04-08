@@ -26,7 +26,9 @@ alembic-migrate:
 
 test:
 	@echo "running pytest...."
-	docker compose exec $(BACKEND_CONTAINER_NAME) pytest --cov-report xml --cov=app tests/
+	cd app && alembic upgrade head
+	cd ..
+	pytest --cov-report xml --cov=app app/tests/
 
 build:
 	@echo "building project...."

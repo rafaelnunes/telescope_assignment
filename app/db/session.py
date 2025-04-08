@@ -1,8 +1,8 @@
-from typing import AsyncGenerator
-
 from core.config import settings
-from sqlalchemy.ext.asyncio import create_async_engine  # type: ignore
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.asyncio import (  # type: ignore
+    async_sessionmaker,
+    create_async_engine,
+)
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 
@@ -16,19 +16,22 @@ def get_engine():
 
 def get_session_maker():
     engine = get_engine()
-    return sessionmaker(
-        engine,
+    return async_sessionmaker(
+        bind=engine,
         class_=AsyncSession,
         autocommit=False,
         autoflush=False,
+        expire_on_commit=False,
     )
 
 
-async def get_session() -> AsyncGenerator[AsyncSession, None]:
-    SessionLocal = get_session_maker()
-    async with SessionLocal() as session:
+async def get_session():
+    session_maker = get_session_maker()
+    async with session_maker() as session:
         try:
             yield session
-        except Exception as e:
+        except Exception:
             await session.rollback()
-            raise e
+            raise
+        finally:
+            await session.close()

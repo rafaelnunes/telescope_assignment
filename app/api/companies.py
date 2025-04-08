@@ -3,18 +3,17 @@
 from api.deps import DBSession
 from api.schema import ProcessCompanyRequest
 from core.exceptions import TelescopeValidationException
+from core.logging import get_logger
 from fastapi import APIRouter, UploadFile
 from service.companies import get_processed_companies, import_company, process_companies
 
 
+logger = get_logger(__name__)
 router = APIRouter(tags=["companies"])
 
 
 @router.post("/import_company_data")
-async def import_company_data(
-    file: UploadFile,
-    db_session: DBSession,
-):
+async def import_company_data(db_session: DBSession, file: UploadFile):
     """Import company data from a file.
 
     Args:
